@@ -6,6 +6,8 @@
  * helpful while working through this exercise.
  */
 
+import java.util.ArrayList;
+
 /*
  * TODO: Create a public class named CrossbodyBag which is a subclass of Bag
  *       In addition to the attributes in Bag, the CrossbodyBag should have an
@@ -30,3 +32,57 @@
  *
  *       See the tests in test/CrossBodyBagTest.java for examples.
  */
+public class CrossbodyBag extends Bag{
+
+    private String color;
+    private int numberOfContents;
+    private int capacity;
+    private ArrayList<String> contents;
+    private int numberOfStraps;
+
+
+    /**
+     * Creates a new CrossbodyBag with the given color, number of straps and
+     * capacity.
+     *
+     * @param color color of the CrossbodyBag
+     * @param capacity capacity of the CrossbodyBag
+     * @param numberOfStraps number of straps of the CrossbodyBag
+     */
+    public CrossbodyBag(String color, int capacity, int numberOfStraps) {
+        super(color, capacity);
+        this.color = color;
+        this.capacity = capacity;
+        this.numberOfContents = 0;
+        this.contents = new ArrayList<String>();
+        this.numberOfStraps = numberOfStraps;
+    }
+
+    /**
+     * Returns the number of straps of this bag
+     */
+    public int getNumberOfStraps() {
+        return this.numberOfStraps;
+    }
+
+    /**
+     * Increase the capacity of this bag by 2.
+     */
+    @Override
+    public void enhance() {
+        super.increaseCapacity(2);
+    }
+
+    /**
+     * Return the details of this CrossbodyBag.
+     * This method requires you to have created the private
+     * instance variables mentioned above.
+     *
+     * @return the details of this CrossbodyBag
+     */
+    @Override
+    public String toString() {
+        return this.color + " Crossbody Bag with " + this.numberOfStraps + " straps (" + this.numberOfContents + " / " +
+                this.capacity + ")";
+    }
+}
